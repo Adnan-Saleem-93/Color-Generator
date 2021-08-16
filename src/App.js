@@ -11,7 +11,7 @@ function App() {
         <Col md={3}>
           <h3>Color Generator</h3>
         </Col>
-        <Col md={6} sm={9}>
+        <Col md={9} sm={12}>
           <InputSection />
         </Col>
       </Row>
