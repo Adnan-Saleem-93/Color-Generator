@@ -1,0 +1,8 @@
+#btn-color-submit {
+  background-color: #2a2186c9 !important;
+  border: 1px solid #2a2186c9 !important;
+}
+#btn-color-submit:hover {
+  background-color: #292277ea !important;
+  border: 1px solid #292277ea !important;
+}
