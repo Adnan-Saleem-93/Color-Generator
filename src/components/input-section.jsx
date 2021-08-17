@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import "../css/input-section.css";
-import {InputGroup, FormControl, Button} from "react-bootstrap";
+import {FormControl, Button} from "react-bootstrap";
 
-const InputSection = () => {
+const InputSection = ({onSubmit}) => {
+  const [color, setColor] = useState("");
+  const handleChange = (e) => {
+    setColor(e.target.value);
+  };
+
   return (
     <>
       <FormControl
@@ -10,8 +15,11 @@ const InputSection = () => {
         aria-label="Color-Input"
         aria-describedby="color-input"
         autoFocus={true}
+        onChange={handleChange}
       />
-      <Button id="btn-color-submit">Submit</Button>
+      <Button id="btn-color-submit" onClick={() => onSubmit(color)}>
+        Submit
+      </Button>
     </>
   );
 };
