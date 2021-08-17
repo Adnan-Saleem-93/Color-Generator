@@ -1,0 +1,10 @@
+.color-box {
+  height: 7rem;
+  border: 1px solid gray;
+}
+@media (min-width: 992px) {
+  .col-lg-2 {
+    flex: 0 0 auto;
+    width: 20% !important;
+  }
+}

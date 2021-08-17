@@ -2,6 +2,7 @@ import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import InputSection from "./components/input-section";
+import Colors from "./components/colors-section";
 import {Row, Col} from "react-bootstrap";
 
 function App() {
@@ -15,7 +16,9 @@ function App() {
           <InputSection />
         </Col>
       </Row>
-      <Row></Row>
+      <Row>
+        <Colors />
+      </Row>
     </>
   );
 }
