@@ -4,11 +4,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import InputSection from "./components/input-section";
 import Colors from "./components/colors-section";
 import {Row, Col} from "react-bootstrap";
+import Values from "values.js";
 
 function App() {
-  const [colorValue, setColorValue] = useState("");
+  const [colorList, setColorList] = useState(new Values("orange").all(10));
   const handleSubmit = (color) => {
-    setColorValue(color);
+    let newColorList = new Values(color).all(10);
+    setColorList(newColorList);
   };
 
   return (
@@ -22,7 +24,7 @@ function App() {
         </Col>
       </Row>
       <Row>
-        <Colors color={colorValue} />
+        <Colors colorList={colorList} />
       </Row>
     </>
   );
