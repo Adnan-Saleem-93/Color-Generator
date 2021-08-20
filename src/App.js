@@ -4,13 +4,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import InputSection from "./components/input-section";
 import Colors from "./components/colors-section";
 import {Row, Col} from "react-bootstrap";
+import ErrorMessage from "./components/error-message";
 import Values from "values.js";
 
 function App() {
-  const [colorList, setColorList] = useState(new Values("orange").all(10));
+  const [colorList, setColorList] = useState(new Values("black").all(10));
+  const [showError, setShowError] = useState(false);
+  const errorMessage = "Failed to generate colors for specified input";
   const handleSubmit = (color) => {
-    let newColorList = new Values(color).all(10);
-    setColorList(newColorList);
+    try {
+      let newColorList = new Values(color).all(10);
+      setColorList(newColorList);
+      setShowError(false);
+    } catch (error) {
+      setShowError(true);
+      console.error(error);
+    }
+  };
+
+  const handleErrorClose = (value) => {
+    setShowError(value);
   };
 
   return (
@@ -26,6 +39,9 @@ function App() {
       <Row>
         <Colors colorList={colorList} />
       </Row>
+      {showError && (
+        <ErrorMessage show={showError} message={errorMessage} onCLose={handleErrorClose} />
+      )}
     </>
   );
 }

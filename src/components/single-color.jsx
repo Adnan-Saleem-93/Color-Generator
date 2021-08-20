@@ -13,7 +13,7 @@ const SingleColor = ({rgb, weight}) => {
     let brightness = (red * 299 + green * 587 + blue * 114) / 1000;
 
     setTextColor(brightness >= 128 ? "black" : "lightgray");
-  }, []);
+  }, [rgb]);
 
   return (
     <Col
