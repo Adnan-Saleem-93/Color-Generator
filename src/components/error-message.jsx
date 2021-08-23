@@ -1,8 +1,13 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {ToastContainer, Alert} from "react-bootstrap";
 import "../css/error-message.css";
 
 const ErrorMessage = ({show, message, color, onCLose}) => {
+  useEffect(() => {
+    setTimeout(() => {
+      onCLose(false);
+    }, 4000);
+  });
   return (
     <ToastContainer className="p-3" position="bottom-center">
       <Alert
@@ -13,7 +18,7 @@ const ErrorMessage = ({show, message, color, onCLose}) => {
         dismissible
         show={show}
       >
-        <Alert.Heading>Error</Alert.Heading>
+        <Alert.Heading>{"Error".toUpperCase()}</Alert.Heading>
         <p>
           {message} <b style={{color: "rgb(204 205 246)"}}>{color}</b>
         </p>

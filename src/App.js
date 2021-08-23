@@ -8,10 +8,10 @@ import ErrorMessage from "./components/error-message";
 import Values from "values.js";
 
 function App() {
-  const initialColor = "black";
+  const initialColor = "green";
   const [colorList, setColorList] = useState(new Values(initialColor).all(10));
   const [showError, setShowError] = useState(false);
-  const [colorValue, setColorValue] = useState("black");
+  const [colorValue, setColorValue] = useState(initialColor);
   let errorMessage = "Failed to generate colors for ";
   const handleSubmit = (color) => {
     setColorValue(color);
