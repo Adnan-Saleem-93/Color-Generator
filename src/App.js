@@ -8,10 +8,13 @@ import ErrorMessage from "./components/error-message";
 import Values from "values.js";
 
 function App() {
-  const [colorList, setColorList] = useState(new Values("black").all(10));
+  const initialColor = "black";
+  const [colorList, setColorList] = useState(new Values(initialColor).all(10));
   const [showError, setShowError] = useState(false);
-  const errorMessage = "Failed to generate colors for specified input";
+  const [colorValue, setColorValue] = useState("black");
+  let errorMessage = "Failed to generate colors for ";
   const handleSubmit = (color) => {
+    setColorValue(color);
     try {
       let newColorList = new Values(color).all(10);
       setColorList(newColorList);
@@ -33,14 +36,19 @@ function App() {
           <h3>Color Generator</h3>
         </Col>
         <Col md={9} sm={12}>
-          <InputSection onSubmit={handleSubmit} />
+          <InputSection onSubmit={handleSubmit} initialColor={initialColor} />
         </Col>
       </Row>
       <Row>
         <Colors colorList={colorList} />
       </Row>
       {showError && (
-        <ErrorMessage show={showError} message={errorMessage} onCLose={handleErrorClose} />
+        <ErrorMessage
+          show={showError}
+          message={errorMessage}
+          color={colorValue}
+          onCLose={handleErrorClose}
+        />
       )}
     </>
   );
