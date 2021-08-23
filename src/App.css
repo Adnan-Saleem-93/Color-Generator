@@ -4,6 +4,9 @@
 .App > div {
   padding: 1rem !important;
 }
+.colors {
+  margin-right: 0 !important;
+}
 h3 {
   text-align: center !important;
   margin-bottom: 0 !important;

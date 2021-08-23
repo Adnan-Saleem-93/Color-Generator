@@ -12,7 +12,6 @@ function App() {
   const [colorList, setColorList] = useState(new Values(initialColor).all(10));
   const [showError, setShowError] = useState(false);
   const [colorValue, setColorValue] = useState(initialColor);
-  let errorMessage = "Failed to generate colors for ";
   const handleSubmit = (color) => {
     setColorValue(color);
     try {
@@ -39,17 +38,10 @@ function App() {
           <InputSection onSubmit={handleSubmit} initialColor={initialColor} />
         </Col>
       </Row>
-      <Row>
+      <Row className="colors">
         <Colors colorList={colorList} />
       </Row>
-      {showError && (
-        <ErrorMessage
-          show={showError}
-          message={errorMessage}
-          color={colorValue}
-          onCLose={handleErrorClose}
-        />
-      )}
+      {showError && <ErrorMessage show={showError} color={colorValue} onCLose={handleErrorClose} />}
     </>
   );
 }

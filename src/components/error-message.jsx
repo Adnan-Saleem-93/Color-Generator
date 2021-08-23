@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import {ToastContainer, Alert} from "react-bootstrap";
 import "../css/error-message.css";
 
-const ErrorMessage = ({show, message, color, onCLose}) => {
+const ErrorMessage = ({show, color, onCLose}) => {
   useEffect(() => {
     setTimeout(() => {
       onCLose(false);
@@ -20,7 +20,7 @@ const ErrorMessage = ({show, message, color, onCLose}) => {
       >
         <Alert.Heading>{"Error".toUpperCase()}</Alert.Heading>
         <p>
-          {message} <b style={{color: "rgb(204 205 246)"}}>{color}</b>
+          Failed to generate colors for <b style={{color: "rgb(204 205 246)"}}>{color}</b>
         </p>
         <p className="sub-text-error">Please enter a valid Color</p>
       </Alert>
