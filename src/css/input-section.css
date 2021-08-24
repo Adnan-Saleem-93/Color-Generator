@@ -25,3 +25,8 @@
     width: 10rem;
   }
 }
+#input-error {
+  font-size: 14px;
+  margin-left: 1rem;
+  color: red;
+}
